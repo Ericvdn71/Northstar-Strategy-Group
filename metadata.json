@@ -1,0 +1,6 @@
+{
+  "name": "Northstar Strategy Group PM & CRM",
+  "description": "Customisable Asana-style project management software and CRM tailored for WASH Development, Fundraising Initiatives, Humanitarian Research, and Social Impact Internship programmes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

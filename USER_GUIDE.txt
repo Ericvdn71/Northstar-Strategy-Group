@@ -1,0 +1,430 @@
+================================================================================
+NORTHSTAR STRATEGY GROUP - ENTERPRISE OPERATIONS MANUAL & USER GUIDE
+Sustainable Development Project Management & Relational CRM Platform
+================================================================================
+Document Version : 2.4.0
+Target Audience  : First-Time Operators, Project Leads, Field Directors, 
+                   University Coordinators, and Regional NGO Partners
+Operational Hubs : Southeast Asia (Lower Mekong), Europe (UK/EU), North America
+================================================================================
+
+TABLE OF CONTENTS
+-----------------
+1.  SYSTEM OVERVIEW & MISSION
+2.  GLOBAL TIME ZONES & 24/7 OPERATING PROTOCOL
+3.  CORE TEAM MEMBERS & REGIONAL ASSIGNMENTS
+4.  THE THREE STRATEGIC WORKFLOWS
+5.  ROLE-BASED ACCESS CONTROL (RBAC) & PERMISSION PROFILES
+6.  WORKFLOWS & KANBAN TASK EXECUTION
+    - 6.1 Five Pipeline Execution Stages
+    - 6.2 Mandatory Due Diligence Screening Checklists
+    - 6.3 Task Dependencies (Finish-to-Start Blockers)
+    - 6.4 Creating & Updating Tasks
+7.  RELATIONAL CRM (UNIVERSITIES & SOUTHEAST ASIAN NGOS)
+    - 7.1 NGO Vetting & National Registration Verification (MoI / MOLISA)
+    - 7.2 Partner University Onboarding & Academic Domains
+    - 7.3 Student Placement Matching & Health Declarations
+8.  SAFEGUARDING & 24/7 DUTY-OF-CARE ESCALATION PROTOCOL
+    - 8.1 Incident Severity Levels & Triage
+    - 8.2 Automated P1 Critical Escalation to Regional Directors
+9.  CROSS-BORDER DATA COMPLIANCE & AUTOMATED SCC EXECUTION
+    - 9.1 EU Commission Decision 2021/914 Transfer Modules
+    - 9.2 Transfer Impact Assessments (TIA) & Technical Measures (TOMs)
+    - 9.3 Cryptographic SHA-256 Signatures & Immutable Audit Trails
+10. CODE DELIVERABLES (PostgreSQL 14+ Schema & Python 3.11 Regex Engine)
+11. FIRST-TIME USER QUICK-START CHECKLIST (STEP-BY-STEP)
+12. FREQUENTLY ASKED QUESTIONS & TROUBLESHOOTING
+
+================================================================================
+1. SYSTEM OVERVIEW & MISSION
+================================================================================
+Northstar Strategy Group is a global advisory and project delivery partnership 
+bridging European/North American academic institutions, international donors, 
+and vetted grassroots NGOs across Southeast Asia (Cambodia, Vietnam, Thailand, 
+Indonesia).
+
+This web application delivers a unified, Asana-style Project Management (PM) 
+and Relational Customer Relationship Management (CRM) system tailored specifically 
+to the regulatory, safeguarding, and operational demands of cross-border development.
+
+Key Capabilities:
+* Multi-Time Zone Synchronization across Southeast Asia, Europe, and the Americas.
+* Strict Role-Based Access Control (Internal Consultant, University Coordinator, Local Partner).
+* 5-Stage Kanban boards with mandatory due diligence screening items and task dependencies.
+* Relational directories linking accredited universities, vetted NGOs, and graduate placements.
+* Automated 24/7 Duty-of-Care emergency incident tracking with instant Regional Director alerts.
+* 1-Click Automated Standard Contractual Clauses (SCC) execution compliant with GDPR Art. 46.
+
+================================================================================
+2. GLOBAL TIME ZONES & 24/7 OPERATING PROTOCOL
+================================================================================
+Northstar operates across three primary time zones to maintain continuous 
+support for field researchers, university departments, and foreign grantors:
+
+[1] INDOCHINA TIME (ICT / UTC+7)
+    - Coverage: Cambodia, Vietnam, Thailand, Laos
+    - Primary Hubs: Phnom Penh (Executive HQ), Siem Reap, Can Tho, Hanoi, Bangkok
+    - Core Operating Hours: 08:00 - 17:30 ICT
+    - Functions: Field research coordination, peatland/mangrove field stations, 
+      Ministry of Interior (MoI) liaison, local NGO capacity building.
+
+[2] GMT+1 (UK / WESTERN EUROPE)
+    - Coverage: United Kingdom (BST), France, Germany, Switzerland (CET)
+    - Primary Hubs: London (Corporate Secretariat), Oxford, Paris, Geneva
+    - Core Operating Hours: 09:00 - 18:00 GMT+1
+    - Functions: Academic institutional agreements (Oxford), European Commission 
+      & AFD donor proposal architecture, GDPR legal compliance & SCC sign-offs.
+
+[3] GMT-4 (NORTH AMERICA / US EAST COAST)
+    - Coverage: United States (EDT), Eastern Canada (EDT)
+    - Primary Hubs: Washington DC, New York, Montreal
+    - Core Operating Hours: 09:00 - 17:30 GMT-4
+    - Functions: North American university relations (Georgetown, McGill), 
+      USAID & Feed the Future donor proposals, SAM.gov / UEI certifications.
+
+COORDINATION RULE (THE "HAND-OFF WINDOW"):
+* 13:00 - 16:00 ICT corresponds to 07:00 - 10:00 GMT+1: Primary handover window 
+  between Indochina field teams and London/Europe leadership.
+* 14:00 - 17:00 GMT+1 corresponds to 09:00 - 12:00 GMT-4: Transatlantic coordination 
+  window between European partners and Washington/Montreal coordinators.
+* Emergency Duty of Care: P1 Critical incidents trigger alerts simultaneously across 
+  all three time zones 24 hours a day, 7 days a week.
+
+================================================================================
+3. CORE TEAM MEMBERS & REGIONAL ASSIGNMENTS
+================================================================================
+The Northstar Strategy Group executive and operational delivery team comprises 
+eight designated specialists:
+
+1. YE KHAUNG HTET
+   - Role: Environmental & Peatland Project Lead
+   - Time Zone: Indochina Time (ICT, UTC+7)
+   - Location: Siem Reap & Phnom Penh, Cambodia
+   - Email: ye.khaung.htet@northstar-sg.com
+   - Primary Focus: Lower Mekong hydrology, Tonle Sap peat forest conservation, 
+     field ranger logistics, and community FPIC engagement.
+
+2. NATHAN SIMS
+   - Role: Senior ESG Strategy & Proposal Architect
+   - Time Zone: GMT+1 (UK & Western Europe)
+   - Location: London, United Kingdom
+   - Email: nathan.sims@northstar-sg.com
+   - Primary Focus: Bilateral donor funding architecture (USAID, AFD, EU), 
+     NICRA cost-rate calculations, and multi-year program design.
+
+3. ANNA ANUFRIKOVA
+   - Role: Cross-Border Legal & SCC Compliance Specialist
+   - Time Zone: GMT+1 (Europe)
+   - Location: London / Paris
+   - Email: anna.anufrikova@northstar-sg.com
+   - Primary Focus: GDPR Art. 46 cross-border transfer compliance, Transfer 
+     Impact Assessments (TIAs), EU 2021/914 SCC modules, and university DPAs.
+
+4. FINN CHAPMAN
+   - Role: Duty-of-Care & Safeguarding Operations Lead
+   - Time Zone: GMT+1 (UK)
+   - Location: Oxford & London, United Kingdom
+   - Email: finn.chapman@northstar-sg.com
+   - Primary Focus: Field researcher safety protocols, medical evacuations, 
+     PSEA (Prevention of Sexual Exploitation and Abuse) audits, and crisis triage.
+
+5. HARVEY YOUNG
+   - Role: University Partnerships & Foreign Donors Director
+   - Time Zone: GMT-4 (US East Coast)
+   - Location: Washington DC, United States
+   - Email: harvey.young@northstar-sg.com
+   - Primary Focus: North American institutional partnerships (Georgetown, 
+     McGill), Washington DC donor networking, and EU DEVCO co-financing windows.
+
+6. ERIC VADAN
+   - Role: Carbon Methodology & Verra VCS Auditor
+   - Time Zone: Indochina Time (ICT, UTC+7)
+   - Location: Can Tho & Hanoi, Vietnam
+   - Email: eric.vadan@northstar-sg.com
+   - Primary Focus: VM0007 REDD+ and blue carbon accounting, soil organic mass 
+     sampling, satellite baseline verification, and third-party VCS audits.
+
+7. BENICIO FRANQUI
+   - Role: International Student Placements Coordinator
+   - Time Zone: GMT-4 (Americas)
+   - Location: Montreal, Canada & Washington DC
+   - Email: benicio.franqui@northstar-sg.com
+   - Primary Focus: University student vetting, academic credit accreditation, 
+     visa documentation, and host NGO alignment for overseas interns.
+
+8. SOVANTHEP SOUS
+   - Role: Cambodia NGO Advisory & MoI Liaison
+   - Time Zone: Indochina Time (ICT, UTC+7)
+   - Location: Phnom Penh & Battambang, Cambodia
+   - Email: sovanthep.sous@northstar-sg.com
+   - Primary Focus: Cambodian Ministry of Interior (MoI) legal compliance, 
+     LANGO statutory reporting, commune clearances, and civil society advisory.
+
+================================================================================
+4. THE THREE STRATEGIC WORKFLOWS
+================================================================================
+All projects in the system are categorized under one of three strategic tracks:
+
+[TRACK 1] ENVIRONMENTAL DEVELOPMENT (Code: ENVIRONMENTAL_DEV)
+- Core Scope: Peatland restoration, mangrove conservation, coastal blue carbon, 
+  and voluntary carbon market verification under Verra VCS / CCB standards.
+- Primary Geography: Lower Mekong (Tonle Sap, Prek Toal, Can Tho, Mekong Delta).
+- Specialized Requirements: FPIC (Free, Prior, and Informed Consent), forestry 
+  permits, satellite baseline deforestation audits.
+
+[TRACK 2] SOCIAL DEVELOPMENT (STUDENT PLACEMENTS) (Code: SOCIAL_DEV)
+- Core Scope: Matching graduate and postgraduate researchers from Oxford, 
+  Georgetown, McGill, and NUS with vetted Southeast Asian host NGOs.
+- Primary Geography: Europe / North America -> Southeast Asia.
+- Specialized Requirements: Mandatory Duty-of-Care briefings, local emergency 
+  contacts, student medical declarations, and executed GDPR SCC agreements.
+
+[TRACK 3] NGO FUNDRAISING ADVISORY (CAMBODIA) (Code: FUNDRAISING_ADVISORY)
+- Core Scope: Structuring high-value competitive grant proposals targeting foreign 
+  funders (USAID Cambodia, Agence Française de Développement, EU Delegation).
+- Primary Geography: Cambodia (Phnom Penh, Battambang, Siem Reap).
+- Specialized Requirements: SAM.gov Unique Entity Identifier (UEI), NICRA indirect 
+  rates, Theory of Change (ToC), MEL frameworks, and MoI compliance certificates.
+
+================================================================================
+5. ROLE-BASED ACCESS CONTROL (RBAC) & PERMISSION PROFILES
+================================================================================
+To enforce data confidentiality, safeguarding protection, and legal authority, 
+the application enforces three distinct persona roles:
+
+1. INTERNAL CONSULTANT (Northstar Strategy Group)
+   * Full global visibility across all three workflows.
+   * Can create, modify, reassign, and delete tasks and subtasks.
+   * Exclusive authority to trigger automated cryptographic SCC execution.
+   * Can view high-level grant budgets (USD) and donor financial data.
+   * Can modify due diligence status and clear screening items.
+
+2. UNIVERSITY COORDINATOR (e.g., Oxford, Georgetown, McGill)
+   * Focused view centered on Social Development and student placements.
+   * Access to partner NGO directory, student profiles, and placement statuses.
+   * Can view Duty-of-Care incident logs for their own institution's students.
+   * Cannot view proprietary commercial advisory fees or unassigned projects.
+
+3. LOCAL REGIONAL PARTNER (e.g., Mekong Peatland, CREC, Vietnam Mangrove)
+   * Field operational scope.
+   * Can view and check off assigned subtasks and local due diligence proofs.
+   * Can log 24/7 Duty-of-Care incidents directly from the field.
+   * Cannot access cross-border legal contract generators or external grant budgets.
+
+SWITCHING PERSONAS:
+Use the "Active Persona (RBAC)" dropdown selector in the top right of the navigation 
+bar to instantly switch roles and inspect the application from different perspectives.
+
+================================================================================
+6. WORKFLOWS & KANBAN TASK EXECUTION
+================================================================================
+
+6.1 FIVE PIPELINE EXECUTION STAGES
+----------------------------------
+Every task progresses through five linear stages:
+1. BACKLOG: Scoping, preliminary concepts, and unassigned project backlogs.
+2. DUE DILIGENCE: Mandatory vetting, legal registration audits, and compliance checks.
+3. IN PROGRESS: Active field deployment, proposal drafting, or student hosting.
+4. COMPLIANCE REVIEW: Final legal review, TIA audit, or donor grant validation.
+5. COMPLETED: Formally signed off, verified, and archived.
+
+6.2 MANDATORY DUE DILIGENCE SCREENING CHECKLISTS
+-----------------------------------------------
+Tasks contain embedded due diligence checklists categorized into:
+- Legal Standing (MoI registration, provincial forestry permits)
+- Safeguarding (PSEA policy, child protection, whistleblower channels)
+- Financial Integrity (Counter-terrorism CFT/AML checks, SAM.gov UEI validation)
+- Duty of Care (Emergency medevac plan, satellite check-ins, water safety)
+- GDPR Compliance (DPA signed, Transfer Impact Assessment archived)
+
+OPERATIONAL RULE: A task cannot be marked as COMPLETED if any mandatory due 
+diligence item remains unverified.
+
+6.3 TASK DEPENDENCIES (FINISH-TO-START BLOCKERS)
+------------------------------------------------
+The system supports Finish-to-Start predecessor dependencies. For example, 
+Task [ENV-102] "Verra VCS Methodology Compliance Audit" depends on the prior 
+completion of [ENV-101] "Tonle Sap Peatland Carbon Stratification Survey".
+* If a predecessor task is not completed, the dependent task displays an 
+  orange warning badge: "Blocked by [Code]".
+* Clicking the dependency link in the task card or task modal opens the 
+  predecessor task immediately.
+
+6.4 CREATING & UPDATING TASKS
+-----------------------------
+* Click "+ New Task" in the top bar of the Workflows & Tasks tab.
+* Enter Title, Description, Target Workflow, Stage, Priority, and Due Date.
+* Select the Assigned Lead from the 8 Northstar team members.
+* Optional: Select a prerequisite task to establish a Finish-to-Start dependency.
+* For Cambodian Fundraising Advisory tasks: Enter the Foreign Donor Name (e.g., USAID, 
+  AFD, EU) and the Target Grant Value in USD.
+* Click "Create Task" to commit the record.
+
+================================================================================
+7. RELATIONAL CRM (UNIVERSITIES & SOUTHEAST ASIAN NGOS)
+================================================================================
+
+7.1 NGO VETTING & NATIONAL REGISTRATION VERIFICATION
+----------------------------------------------------
+All regional NGOs must undergo rigorous screening before receiving international 
+funding or hosting overseas students.
+* Cambodian NGOs must possess a valid Ministry of Interior registration number 
+  matching the statutory regex pattern: `KH-MOI-YYYY-NNNN` (e.g., KH-MOI-2018-4912).
+* Vietnamese NGOs must possess a valid MOLISA / local authority identifier matching 
+  `VN-MOLISA-NNNN` (e.g., VN-MOLISA-8832).
+* International Phone Numbers must adhere to ITU E.164 standards (+855 for Cambodia, 
+  +84 for Vietnam, +44 for UK, +1 for US/Canada).
+
+7.2 PARTNER UNIVERSITY ONBOARDING
+---------------------------------
+Academic partners must use official top-level accredited institutional email domains 
+matching `\.(edu|ac\.[a-z]{2}|ca|edu\.[a-z]{2})$`.
+* E.g., `ox.ac.uk` (Oxford), `georgetown.edu` (Georgetown), `mcgill.ca` (McGill).
+* Each university profile tracks annual student quotas, active overseas placements, 
+  and whether a Data Protection Agreement (DPA) is countersigned.
+
+7.3 STUDENT PLACEMENT MATCHING
+------------------------------
+* Placements link a specific university student, host NGO, degree program, and risk tier.
+* Every placement captures an Emergency Contact with validated international phone.
+* Placements in countries without an EU adequacy decision (e.g., Cambodia, Vietnam) 
+  are automatically flagged as "SCC_PENDING" until a Standard Contractual Clauses 
+  agreement is executed.
+
+================================================================================
+8. SAFEGUARDING & 24/7 DUTY-OF-CARE ESCALATION PROTOCOL
+================================================================================
+The Duty-of-Care dashboard provides real-time monitoring of all health, security, 
+and safeguarding incidents across field stations.
+
+8.1 INCIDENT SEVERITY LEVELS & TRIAGE
+-------------------------------------
+- LOW: Routine minor matters (minor equipment damage, routine visa extensions).
+- MEDIUM: Significant events requiring manager monitoring (local police document 
+  checks, minor outpatient illness).
+- HIGH: Serious events requiring field evacuation or specialist care (suspected 
+  dengue fever, hospitalization, political unrest).
+- CRITICAL (P1): Immediate life-safety emergencies (monsoon flash floods subverting 
+  remote camps, major road accidents, severe safeguarding violations).
+
+8.2 AUTOMATED P1 CRITICAL ESCALATION
+------------------------------------
+* When an incident is logged with CRITICAL or HIGH severity, the system automatically 
+  flags `is_escalated_to_regional_director = TRUE` and updates the status to 
+  `ESCALATED_TO_DIRECTORS`.
+* An emergency notification is broadcast across the system.
+* In the database schema, this escalation is enforced via a PostgreSQL trigger: 
+  `trigger_auto_escalate_critical_incidents()`.
+
+================================================================================
+9. CROSS-BORDER DATA COMPLIANCE & AUTOMATED SCC EXECUTION
+================================================================================
+Under GDPR Chapter V (Article 46), exporting personal student data from Europe/UK 
+to third countries without an adequacy finding requires appropriate safeguards.
+
+9.1 EU COMMISSION DECISION 2021/914 MODULES
+-------------------------------------------
+The application implements standard modular clauses:
+- Module 1: Controller-to-Controller (University -> Host NGO)
+- Module 2: Controller-to-Processor (University -> Northstar Field Operations)
+
+9.2 TRANSFER IMPACT ASSESSMENTS (TIA) & TOMS
+--------------------------------------------
+Before execution, the system verifies:
+* Technical & Organizational Measures (TOMs): TLS 1.3 in transit, AES-256 GCM 
+  at rest, multi-factor hardware authentication, defined data retention periods.
+* Transfer Impact Assessment (TIA): Certification that local surveillance laws 
+  do not undermine contractual guarantees.
+
+9.3 CRYPTOGRAPHIC SHA-256 SIGNATURES
+------------------------------------
+* Clicking "Execute SCC Agreement" generates an immutable SHA-256 cryptographic 
+  hash combining Exporter, Importer, Timestamp, and Contract Parameters.
+* An entry is logged in the permanent audit trail: `scc_compliance_logs`.
+* The linked student placement immediately updates from `SCC_PENDING` to `APPROVED`.
+
+================================================================================
+10. CODE DELIVERABLES (SCHEMA & BACKEND SPECIFICATIONS)
+================================================================================
+The application includes complete source code for production infrastructure:
+1. `schema.sql`:
+   - Full PostgreSQL 14+ DDL mapping 15 relational tables.
+   - Enforces check constraints for RFC emails, E.164 phone formats, and regexes.
+   - Includes automatic update triggers and critical incident escalation procedures.
+   - Seeded with all 8 Northstar team members, regional NGOs, and sample tasks.
+2. `backend/api.py`:
+   - Production Python 3.11 FastAPI / Pydantic service.
+   - Rigorous regex engine for international numbers, NGO registration codes, 
+     and university domains.
+   - Role-Based Access Control decorator `@require_roles`.
+   - Automated cryptographic SCC signature generator and incident escalation handlers.
+   - Built-in verification test suite checking regex edge cases.
+
+View and copy these files anytime via the "Schema & API Code" tab in the top navigation.
+
+================================================================================
+11. FIRST-TIME USER QUICK-START CHECKLIST (STEP-BY-STEP)
+================================================================================
+Follow this 5-minute walkthrough to familiarize yourself with the platform:
+
+Step 1: Check Current Regional Times
+- Observe the three live time zone badges in the top navigation bar (Indochina ICT, 
+  GMT+1, GMT-4). Note which regional offices are currently during work hours.
+
+Step 2: Inspect the Core Team Directory
+- Click the "Team & Time Zones" button in the top bar.
+- View the 8 specialists (Ye Khaung Htet, Nathan Sims, Anna Anufrikova, Finn Chapman, 
+  Harvey Young, Eric Vadan, Benicio Franqui, Sovanthep Sous) and their local time zones.
+
+Step 3: Review the Task Kanban Board
+- Go to "Workflows & Tasks". Click through the workflow filters:
+  * "Environmental Dev": Observe peatland surveys assigned to Ye Khaung Htet.
+  * "Social Dev": Observe student placement tasks and dependencies.
+  * "Cambodia Adv": Observe USAID / AFD grants and funding values ($1.85M, $1.32M, $2.4M).
+- Click any task card to open the detailed modal. Check off a subtask or due 
+  diligence item.
+
+Step 4: Explore the Relational CRM
+- Click "Relational CRM".
+- Review the Vetted NGOs tab: Notice the Cambodian MoI registration `#KH-MOI-2018-4912`.
+- Review the Universities tab: Notice domains `ox.ac.uk` and `georgetown.edu`.
+- Click "+ Register NGO" or "+ Register University" to test the live regex validation!
+
+Step 5: Test Duty-of-Care Incident Logging
+- Switch to "Duty of Care".
+- Review existing incidents (e.g., Dengue fever hospitalization in Siem Reap).
+- Click "+ Log Incident". Select Severity "Critical" or "High" and click submit.
+- Notice the immediate emergency notification banner and automated escalation to Directors!
+
+Step 6: Execute an SCC Agreement
+- Switch to "SCC Compliance".
+- Find the draft agreement for McGill University -> Vietnam Mangrove Coalition.
+- Click "Execute Standard Contractual Clauses".
+- Observe the instant generation of the SHA-256 digital signature hash and the 
+  updated compliance audit log!
+
+================================================================================
+12. FREQUENTLY ASKED QUESTIONS & TROUBLESHOOTING
+================================================================================
+Q: How do I change who is assigned to a task?
+A: Click any task on the Kanban board to open the Task Details modal. In the 
+   "Assigned Lead" field, choose from any of the 8 Northstar team members.
+
+Q: Why can't I mark a task as "Completed"?
+A: Ensure that all mandatory items in the "Due Diligence & Compliance Screening" 
+   checklist are checked off first. If the task has an active predecessor dependency, 
+   the predecessor task must also be completed.
+
+Q: What happens if an NGO registration number fails validation?
+A: For Cambodia, the registration code must follow `KH-MOI-YYYY-NNNN` (4 digits year, 
+   followed by 4 digits sequential number, e.g. KH-MOI-2018-4912). For Vietnam, use 
+   `VN-MOLISA-NNNN`.
+
+Q: Where is this User Guide saved?
+A: This guide is saved as `USER_GUIDE.txt` in the root project directory and in 
+   `/public/USER_GUIDE.txt` for direct download. You can also view and copy it 
+   anytime from the in-app "User Guide (.txt)" button in the top navigation bar.
+
+================================================================================
+End of User Guide. Northstar Strategy Group (c) 2026. All rights reserved.
+================================================================================
